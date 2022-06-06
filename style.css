@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Libre+Baskerville&family=Roboto+Slab&display=swap');
+* {
+    font-family: 'Fredoka One', cursive;
+    font-size: 18px;
+}
+
+.navbar {
+    color: #EBD4D4;
+    background-color: #060930;
+    padding: 10px;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+    backdrop-filter: blur(4px) saturate(120%);
+}
+
+.search-bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 24px 20px;
+    font-size: 20px;
+    color: #060930;
+}
+
+::placeholder {
+    color: #060930;
+    opacity: 80%;
+}
+
+.search-bar button {
+    border: 0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: #060930;
+    cursor: pointer;
+}
+
+.bi-search {
+    color: #EBD4D4;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 5%;
+    background-image: linear-gradient(rgb(89, 91, 131, 0.7), rgb(89, 91, 131, 0.7)), url(asset/images/bg-popcorn.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
