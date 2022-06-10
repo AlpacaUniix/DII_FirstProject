@@ -15,54 +15,68 @@
 <body>
 
     <div class="navbar">
-        <div class="col-3 "> Logo </div>
-        <div class="col-9 ">
-            <div class="row">
-                <!-- <ul>
-                    <li></li>
-                </ul> -->
-                <div class="col-3 row3">
-                    <span class="text">Home</span>
-                </div>
-                <div class="col-3 row3">
-                    <span class="text">Categories</span>
-                </div>
-                <div class="col-3 row3">
-                    <span class="icon-fav">
-                        <i class="bi bi-star-fill"></i>
-                    </span>
-                </div>
-                <div class="col-3 row3">
-                    <span class="icon-user">
-                    <i class="bi bi-person-fill"></i>
-                    </span>
-                </div>
-            </div>
-        </div>
+        <div class="col-3"> Logo </div>
+        <ul class="nav col-9 me-lg-auto justify-content-center mb-md-0">
+            <li>
+                <a href="#" class="nav-link px-5 " id="home">
+                    <div class="wrap">
+                        <span class="text">Home</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link px-5 " id="categories">
+                    <div class="wrap">
+                        <span class="text">Categories</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link px-5" id="favoriteMovies">
+                    <div class="wrap">
+                        <span class="icon"><i class="bi bi-star-fill"></i></span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link px-5" id="profilePersonal">
+                    <div class="wrap">
+                        <span class="icon"><i class="bi bi-person-fill"></i></span>
+                    </div>
+                </a>
+            </li>
+
+    </div>
     </div>
     <div class="container ">
         <form action="" class="search-bar">
             <input type="search" placeholder="search movies.." id="inputText">
             <!-- <span class="clear" onclick="document.getElementById('mysearch').value =''"></span> -->
             <button type="button" id="searchButton"> 
-                <i class="bi bi-search" ></i>
+                <i class="bi bi-search " ></i>
              </button>
         </form>
+
     </div>
     <div id="output" class="px-5">
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">image</th>
-                    <th scope="col">name</th>
+                    <th scope="col">No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Details</th>
                 </tr>
-                <tbody id="tableBody"></tbody>
             </thead>
+            <tbody id="tableBody">
+
+            </tbody>
         </table>
     </div>
 
 
-    <script type="text/javascript" src="script.js"></script>
+
+    <script type="text/javascript " src="script.js "></script>
 </body>
 
 </html>
