@@ -43,3 +43,12 @@ function showAnimeOnTable(index, keyword) {
     row.appendChild(cell)
     tableBody.appendChild(row)
 }
+
+function handleShowDropdownSearchBy() {
+    const searchString = document.getElementById('searchBy')
+    if (searchString.className == 'dropdown-menu') {
+        searchString.className = 'dropdown-menu show'
+    } else {
+        searchString.className = 'dropdown-menu'
+    }
+}

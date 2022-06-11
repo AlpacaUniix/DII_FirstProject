@@ -7,35 +7,17 @@
     margin: 0;
 }
 
-.navbar {
-    color: #EBD4D4;
+.nav {
     background-color: #060930;
+    height: 50px;
 }
 
-.navbar ul {
-    display: flex;
-    justify-content: center;
+.nav-link {
+    color: #EBD4D4 !important
 }
 
-.navbar ul li {
-    position: relative;
-}
-
-.navbar ul li a {
-    display: block;
-    width: 180px;
-    height: 60px;
-    text-align: center;
-    padding: 20px 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: all;
-    transition: all 0.2s ease;
-}
-
-.navbar ul li a:hover,
-.navbar ul li a.active {
-    background-color: #333456;
+.dropdown-menu {
+    background-color: #060930;
 }
 
 .search-bar {
