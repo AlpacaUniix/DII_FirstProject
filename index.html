@@ -15,54 +15,16 @@
 
 <body>
 
-    <!-- <div class="navbar">
-        <div class="col-3"> Logo </div>
-        <ul class="nav col-9 me-lg-auto justify-content-center mb-md-0">
-            <li>
-                <a href="#" class="nav-link px-5 " id="home">
-                    <div class="wrap">
-                        <span class="text">Home</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link px-5 " id="categories">
-                    <div class="dropdown">
-                        <span class="text">Categories</span>
-
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link px-5" id="favoriteMovies">
-                    <div class="wrap">
-                        <span class="icon"><i class="bi bi-star-fill"></i></span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link px-5" id="profilePersonal">
-                    <div class="wrap">
-                        <span class="icon"><i class="bi bi-person-fill"></i></span>
-                    </div>
-                </a>
-            </li>
-
-    </div> -->
-    <ul class="nav justify-content-end ">
+    <ul class="nav ">
+        <li>
+            <img class="logo" src="asset/images/logo.png" alt="logo" height="75px">
+        </li>
+        <li>
+            <h1>iloveAnime</h1>
+        </li>
+        <li class="mx-auto"></li>
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item dropdown show">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" onclick="handleShowDropdownSearchBy()">Categories</a>
-            <ul class="dropdown-menu" id="searchBy">
-                <li><a class="dropdown-item" href="#">Anime</a></li>
-                <li><a class="dropdown-item" href="#">Movies</a></li>
-            </ul>
-            <!-- <select name="dog-names" id="dog-names">
-                <option value="anime">Anime</option>
-                <option value="movies">Movies</option>
-            </select> -->
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#"><i class="bi bi-star-fill"></i></a>
@@ -70,9 +32,10 @@
         <li class="nav-item">
             <a class="nav-link" href="#"><i class="bi bi-person-fill"></i></a>
         </li>
+
     </ul>
     </div>
-    <div class="container ">
+    <div class="containerSearch">
         <form action="" class="search-bar">
             <input type="search" placeholder="search movies.." id="inputText">
             <button type="button" id="searchButton">

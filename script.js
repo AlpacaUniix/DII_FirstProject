@@ -44,11 +44,9 @@ function showAnimeOnTable(index, keyword) {
     tableBody.appendChild(row)
 }
 
-function handleShowDropdownSearchBy() {
-    const searchString = document.getElementById('searchBy')
-    if (searchString.className == 'dropdown-menu') {
-        searchString.className = 'dropdown-menu show'
-    } else {
-        searchString.className = 'dropdown-menu'
-    }
+const handleDDDD = (id, title, image_url, synopsis) => {
+
+    return ( <
+        > < />
+    )
 }
