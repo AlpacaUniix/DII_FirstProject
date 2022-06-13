@@ -26,27 +26,62 @@ function showAnimeOnTable(index, keyword) {
     const tableBody = document.getElementById('tableBody')
     let row = document.createElement('tr')
     let cell = document.createElement('th')
-        // cell.setAttribute('')
     cell.innerHTML = index
-    row.appendChild(cell)
-    cell = document.createElement('td')
-    cell.innerHTML = keyword.title
-    row.appendChild(cell)
     cell = document.createElement('td')
     let img = document.createElement('img')
     img.setAttribute('src', keyword.image_url)
     img.height = 300
     cell.appendChild(img)
     row.appendChild(cell)
+    tableBody.appendChild(row)
+    row.appendChild(cell)
     cell = document.createElement('td')
-    cell.innerHTML = keyword.synopsis
+    cell.innerHTML = keyword.title
+    row.appendChild(cell)
+    cell = document.createElement('td')
+    const button = document.createElement('button')
+    button.classList.add('btn')
+    button.classList.add('btn-primary')
+    button.setAttribute('type', 'button')
+    button.innerHTML = 'Like'
+    button.addEventListener('click', function() {
+        let cf = confirm(`ท่านต้องการเพิ่ม ${keyword.title} หรือไม่`)
+        if (cf) {
+            console.log(keyword.title)
+            addAnimeToFav(keyword.title)
+
+
+        }
+    })
+    cell.appendChild(button)
+    row.appendChild(cell)
     row.appendChild(cell)
     tableBody.appendChild(row)
+
 }
 
-const handleDDDD = (id, title, image_url, synopsis) => {
+function addAnimeToFav(anime) {
+    fetch(`https://se104-project-backend.du.r.appspot.com/movies`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(anime)
+    }).then(response => {
+        if (response.status === 200) {
+            return response.json()
+        } else {
+            throw Error(response.statusText)
+        }
+    }).then(data => {
+        console.log('Success', data)
+        showFavAnime()
+    }).catch(error => {
+        return null
+    })
 
-    return ( <
-        > < />
-    )
+}
+
+function showFavAnime() {
+
 }

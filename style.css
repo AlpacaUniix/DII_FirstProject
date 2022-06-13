@@ -6,7 +6,7 @@
 }
 
 .nav {
-    color: #EBD4D4;
+    color: #EBD4D4 !important;
     background-color: #060930;
     width: 100%;
 }
@@ -16,13 +16,20 @@
 }
 
 .nav a {
-    padding-top: 30px;
-    padding-right: 50px;
+    padding: 30px 50px 0 50px;
+}
+
+.nav-item:hover {
+    color: #060930;
+    background-color: #f8b500;
+}
+
+.nav-item {
+    padding-left: 5px;
 }
 
 .nav-link {
     color: #EBD4D4 !important;
-    justify-content: center;
 }
 
 .search-bar {
@@ -68,7 +75,7 @@
     width: 100%;
     min-height: 40vh;
     padding: 5%;
-    background-image: linear-gradient(rgb(89, 91, 131, 0.7), rgb(89, 91, 131, 0.7)), url(asset/images/bg-popcorn.jpg);
+    background-image: linear-gradient(rgb(89, 91, 131, 0.7), rgb(89, 91, 131, 0.7)), url(asset/images/wallpaper.png);
     background-position: center;
     background-size: cover;
     display: flex;

@@ -15,7 +15,7 @@
 
 <body>
 
-    <ul class="nav ">
+    <ul class="nav">
         <li>
             <img class="logo" src="asset/images/logo.png" alt="logo" height="75px">
         </li>
@@ -27,7 +27,7 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="bi bi-star-fill"></i></a>
+            <a class="nav-link" href="#" id="favoriteAnime"><i class="bi bi-star-fill"></i></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#"><i class="bi bi-person-fill"></i></a>
@@ -37,7 +37,7 @@
     </div>
     <div class="containerSearch">
         <form action="" class="search-bar">
-            <input type="search" placeholder="search movies.." id="inputText">
+            <input type="search" placeholder="search anime.." id="inputText">
             <button type="button" id="searchButton">
                 <i class="bi bi-search "></i>
             </button>
@@ -48,10 +48,9 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">No.</th>
+                    <th scope="col">Poster</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Details</th>
+                    <th scope="col">Favorite</th>
                 </tr>
             </thead>
             <tbody id="tableBody">
