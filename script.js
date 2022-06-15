@@ -2,6 +2,7 @@ let anime = undefined
 document.getElementById('searchButton').addEventListener('click', () => {
     let id = document.getElementById('inputText').value
     console.log(id)
+    listAnimeResult.style.display = 'block'
     fetch(`https://api.jikan.moe/v3/search/anime?q=` + id)
         .then(response => {
             return response.json()
@@ -10,10 +11,11 @@ document.getElementById('searchButton').addEventListener('click', () => {
             anime = results.results
             addAnimeList(anime)
         })
+
 })
 
 function onLoad() {
-    hideAll()
+    favoriteAnime.style.display = 'none'
 }
 
 function addAnimeList(animeList) {
@@ -43,15 +45,20 @@ function showAnimeOnTable(index, anime) {
     row.appendChild(cell)
     cell = document.createElement('td')
     const button = document.createElement('button')
+    const i = document.createElement('i')
     button.classList.add('btn')
     button.classList.add('btn-primary')
     button.setAttribute('type', 'button')
-    button.innerHTML = 'Like'
+    i.classList.add('bi')
+    i.classList.add('bi-heart')
+    button.appendChild(i)
     button.addEventListener('dblclick', function() {
         let cf = confirm(`ท่านต้องการเพิ่ม ${anime.title} เข้าในรายการชื่นชอบหรือไม่`)
         if (cf) {
             console.log(anime)
             alert(`${anime.title} ได้เพิ่มเข้าไปในรายการที่ชื่นชอบแล้ว`)
+            i.classList.remove('bi-heart')
+            i.classList.add('bi-heart-fill')
             addAnimeToDBFav(anime)
         }
     })
@@ -101,10 +108,10 @@ function showFavAnime(index, movie) {
     buttonDetails.classList.add('btn-primary')
     buttonDetails.setAttribute('type', 'button')
     buttonDetails.innerHTML = 'Details'
-
     buttonDetails.addEventListener('click', function() {
-        var modal = document.getElementById('Details')
-        modal.style.display = "block";
+
+        document.getElementById('animeTitle').innerHTML = movie.title
+
 
 
     })
@@ -184,11 +191,13 @@ function addAnimeToDBFav(anime) {
 
 var listAnimeResult = document.getElementById('outputListSearch')
 var favoriteAnime = document.getElementById('outputListFav')
+var searchBarAnime = document.getElementById('searchBar')
 
 
 function hideAll() {
     listAnimeResult.style.display = 'none'
     favoriteAnime.style.display = 'none'
+    searchBarAnime.style.display = 'none'
 
 }
 document.getElementById('favoriteAnime').addEventListener('click', () => {
@@ -198,5 +207,6 @@ document.getElementById('favoriteAnime').addEventListener('click', () => {
 
 document.getElementById('defaultPage').addEventListener('click', () => {
     hideAll()
+    searchBarAnime.style.display = 'flex'
     listAnimeResult.style.display = 'block'
 })
