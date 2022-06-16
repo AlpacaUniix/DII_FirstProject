@@ -47,7 +47,7 @@ function showAnimeOnTable(index, anime) {
     const button = document.createElement('button')
     const i = document.createElement('i')
     button.classList.add('btn')
-    button.classList.add('btn-primary')
+    button.style.background = '#ED8D8D'
     button.setAttribute('type', 'button')
     i.classList.add('bi')
     i.classList.add('bi-heart')
@@ -65,6 +65,14 @@ function showAnimeOnTable(index, anime) {
     cell.appendChild(button)
     row.appendChild(cell)
     tableBody.appendChild(row)
+}
+
+function showAnimeOnCard(index, anime) {
+
+}
+
+function showDetailsAnime() {
+
 }
 
 document.getElementById('favoriteAnime').addEventListener('click', () => {
@@ -110,10 +118,6 @@ function showFavAnime(index, movie) {
     buttonDetails.innerHTML = 'Details'
     buttonDetails.addEventListener('click', function() {
 
-        document.getElementById('animeTitle').innerHTML = movie.title
-
-
-
     })
     cell.appendChild(buttonDetails)
     row.appendChild(cell)
@@ -146,7 +150,7 @@ function deleteFavAnime(id) {
             throw Error(response.statusText)
         }
     }).then(results => {
-        alert(`Anime name ${movie.title} is now deleted`)
+        alert(`Anime name ${results.title} is now deleted`)
         fetch(`https://se104-project-backend.du.r.appspot.com/movies/642110330`)
             .then(response => {
                 return response.json()
@@ -210,3 +214,18 @@ document.getElementById('defaultPage').addEventListener('click', () => {
     searchBarAnime.style.display = 'flex'
     listAnimeResult.style.display = 'block'
 })
+
+document.addEventListener("DOMContentLoaded", function() {
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            document.getElementById('navbar_top').classList.add('fixed-top');
+            // add padding top to show content behind navbar
+            navbar_height = document.querySelector('.navbar').offsetHeight;
+            document.body.style.paddingTop = navbar_height + 'px';
+        } else {
+            document.getElementById('navbar_top').classList.remove('fixed-top');
+            // remove padding top from body
+            document.body.style.paddingTop = '0';
+        }
+    });
+});
