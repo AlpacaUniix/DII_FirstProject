@@ -68,9 +68,6 @@ function showAnimeOnTable(index, anime) {
 }
 
 
-
-
-
 document.getElementById('favoriteAnime').addEventListener('click', () => {
     fetch(`https://se104-project-backend.du.r.appspot.com/movies/642110330`)
         .then(response => {
@@ -128,9 +125,6 @@ function showFavAnime(index, movie) {
                 document.getElementById('modalImg').setAttribute('src', movie.image_url)
                 document.getElementById("modalMessage").innerHTML = results.synopsis;
                 console.log(results.synopsis)
-
-
-
             })
     })
     cell.appendChild(buttonDetails)
