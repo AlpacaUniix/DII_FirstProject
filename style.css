@@ -97,27 +97,48 @@ body {
     justify-content: center;
 }
 
-.backButton {
-    position: absolute;
-    top: 50%;
-    background-color: #595B83;
-    border: none;
-    border-radius: 10px;
-    padding: 15px;
-    min-height: 20px;
-    min-width: 80px;
-}
-
-.backButton:hover {
-    background-color: #333456;
-    transition: 0.5s;
-}
-
 .anime-img {
     width: 35%;
     height: 380px;
 }
 
+.modal {
+    background-image: linear-gradient( rgb(57, 50, 50, 0.7), rgb(57, 50, 50, 0.7));
+}
+
+.modal-content {
+    color: #EBD4D4;
+}
+
 .modal-dialog {
-    margin-top: 30px;
+    position: fixed;
+    top: 10vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.modal-body img {
+    padding-bottom: 20px;
+}
+
+.close {
+    color: #595B83;
+    border-color: #fff;
+    border-radius: 10px;
+    line-height: 30px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 70px;
+    text-decoration: none;
+}
+
+.close:hover {
+    color: #060930;
 }

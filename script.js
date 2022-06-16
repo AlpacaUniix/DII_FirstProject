@@ -96,6 +96,7 @@ function showFavAnime(index, movie) {
     let cell = document.createElement('th')
     cell.innerHTML = index
     cell = document.createElement('td')
+
     let img = document.createElement('img')
     img.setAttribute('src', movie.image_url)
     img.height = 300
@@ -126,6 +127,7 @@ function showFavAnime(index, movie) {
                 document.getElementById('modalTitle').innerHTML = results.title;
                 document.getElementById('modalImg').setAttribute('src', movie.image_url)
                 document.getElementById("modalMessage").innerHTML = results.synopsis;
+                console.log(results.synopsis)
 
 
 
@@ -159,23 +161,6 @@ function myFunction() {
 }
 
 
-
-function showDetailsAnime(movie) {
-
-    const animeTitle = document.createElement('modalTitle')
-    animeTitle.innerHTML = (movie.title)
-    document.getElementById("staticBackdrop").appendChild(animeTitle);
-
-    const animeImg = document.createElement('modalBody')
-    animeImg.setAttribute('src', movie.image_url)
-    animeImg.height = 300
-    document.getElementById("staticBackdrop").appendChild(animeImg);
-
-    const animeSynopsis = document.createElement('modalBody')
-    animeSynopsis.innerHTML = (movie.synopsis)
-    document.getElementById("staticBackdrop").appendChild(animeSynopsis);
-}
-
 function deleteFavAnime(id) {
     fetch(`https://se104-project-backend.du.r.appspot.com/movie?id=642110330&&movieId=${id}`, {
         method: 'DELETE'
@@ -194,7 +179,7 @@ function deleteFavAnime(id) {
                 addAnimeListToFav(results)
             })
     }).catch(error => {
-        alert('Your anime id is not in the database.')
+        alert('Your anime is not in the database.')
     })
 }
 
@@ -232,7 +217,6 @@ function addAnimeToDBFav(anime) {
 var listAnimeResult = document.getElementById('outputListSearch')
 var favoriteAnime = document.getElementById('outputListFav')
 var searchBarAnime = document.getElementById('searchBar')
-    // var modal = document.getElementById('movie.id')
 
 
 function hideAll() {
@@ -247,11 +231,7 @@ document.getElementById('favoriteAnime').addEventListener('click', () => {
     favoriteAnime.style.display = 'block'
 })
 
-// document.getElementById('modal').addEventListener('click', () => {
-//     hideAll()
-//     modal.style.display = 'block'
 
-// })
 
 document.getElementById('defaultPage').addEventListener('click', () => {
     hideAll()
@@ -268,17 +248,15 @@ function closeModal() {
 
 
 
-// document.addEventListener("DOMContentLoaded", function() {
-//     window.addEventListener('scroll', function() {
-//         if (window.scrollY > 50) {
-//             document.getElementById('navbar_top').classList.add('fixed-top');
-//             // add padding top to show content behind navbar
-//             navbar_height = document.querySelector('.navbar').offsetHeight;
-//             document.body.style.paddingTop = navbar_height + 'px';
-//         } else {
-//             document.getElementById('navbar_top').classList.remove('fixed-top');
-//             // remove padding top from body
-//             document.body.style.paddingTop = '0';
-//         }
-//     });
-// });
+document.addEventListener("DOMContentLoaded", function() {
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 93) {
+            document.getElementById('navbar_top').classList.add('fixed-top');
+            navbar_height = document.querySelector('.navbar').offsetHeight;
+            document.body.style.paddingTop = navbar_height + 'px';
+        } else {
+            document.getElementById('navbar_top').classList.remove('fixed-top');
+            document.body.style.paddingTop = '0';
+        }
+    });
+});

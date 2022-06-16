@@ -15,90 +15,88 @@
 
 <body onload="onLoad()">
 
-    <div class="container">
+    <ul class="nav navbar-expand-lg" id="navbar_top">
+        <li>
+            <img class="logo" src="asset/images/logo.png" alt="logo" height="75px">
+        </li>
+        <li>
+            <h1>iloveAnime</h1>
+        </li>
+        <li class="mx-auto"></li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" id="defaultPage">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="favoriteAnime"><i class="bi bi-star-fill"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="bi bi-person-fill"></i></a>
+        </li>
 
-        <ul class="nav navbar-expand-lg" id="navbar_top">
-            <li>
-                <img class="logo" src="asset/images/logo.png" alt="logo" height="75px">
-            </li>
-            <li>
-                <h1>iloveAnime</h1>
-            </li>
-            <li class="mx-auto"></li>
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#" id="defaultPage">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" id="favoriteAnime"><i class="bi bi-star-fill"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-person-fill"></i></a>
-            </li>
+    </ul>
+    <div class="containerSearch" id="searchBar">
+        <form action="" class="search-bar">
+            <input type="search" placeholder="search anime.." id="inputText">
+            <button type="button" id="searchButton">
+            <i class="bi bi-search "></i>
+        </button>
+        </form>
 
-        </ul>
-        <div class="containerSearch" id="searchBar">
-            <form action="" class="search-bar">
-                <input type="search" placeholder="search anime.." id="inputText">
-                <button type="button" id="searchButton">
-                <i class="bi bi-search "></i>
-            </button>
-            </form>
+    </div>
 
-        </div>
+    <div id="outputListSearch" class="">
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Poster</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Favorite</th>
+                </tr>
+            </thead>
+            <tbody id="tableBodyHome">
 
-        <div id="outputListSearch" class="px-5">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Poster</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Favorite</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBodyHome">
+            </tbody>
+        </table>
+    </div>
+    <div id="outputListFav" class="px-2">
+        <table class="table  table-striped">
+            <thead class="table-info">
+                <tr>
+                    <th scope="col">Poster</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody id="tableBodyFav">
 
-                </tbody>
-            </table>
-        </div>
-        <div id="outputListFav" class="px-5">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Poster</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Details</th>
-                        <th scope="col">Delete</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBodyFav">
+            </tbody>
+        </table>
+    </div>
 
-                </tbody>
-            </table>
-        </div>
+    <!-- Modal -->
 
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
 
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="modalTitle"></h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal()">
-                            <span aria-hidden="true">&times;</span>
-                    </div>
-                    <div class="modal-body" id="modalBody">
-                        <img id="modalImg"  max-height="50vh">
-                        <p id="modalMessage"></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="closeModal()">OK</button>
-                    </div>
+    <div class="modal fade in" id="staticBackdrop">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="background-color: #595B83;">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modalTitle"></h4>
                 </div>
-
+                <div class="modal-body" id="modalBody">
+                    <img id="modalImg" max-height="50vh">
+                    <p id="modalMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="background-color: #FF5C8D;" data-dismiss="modal" onclick="closeModal()">OK</button>
+                </div>
             </div>
+
         </div>
     </div>
+
 
     <script type="text/javascript " src="script.js "></script>
 </body>
