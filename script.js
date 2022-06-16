@@ -67,13 +67,9 @@ function showAnimeOnTable(index, anime) {
     tableBody.appendChild(row)
 }
 
-function showAnimeOnCard(index, anime) {
 
-}
 
-function showDetailsAnime() {
 
-}
 
 document.getElementById('favoriteAnime').addEventListener('click', () => {
     fetch(`https://se104-project-backend.du.r.appspot.com/movies/642110330`)
@@ -94,6 +90,7 @@ function addAnimeListToFav(animeList) {
 }
 
 function showFavAnime(index, movie) {
+
     const tableBodyFav = document.getElementById('tableBodyFav')
     let row = document.createElement('tr')
     let cell = document.createElement('th')
@@ -101,7 +98,6 @@ function showFavAnime(index, movie) {
     cell = document.createElement('td')
     let img = document.createElement('img')
     img.setAttribute('src', movie.image_url)
-
     img.height = 300
     cell.appendChild(img)
     row.appendChild(cell)
@@ -113,11 +109,27 @@ function showFavAnime(index, movie) {
     cell = document.createElement('td')
     const buttonDetails = document.createElement('button')
     buttonDetails.classList.add('btn')
-    buttonDetails.classList.add('btn-primary')
+    buttonDetails.classList.add('btn-info')
+    buttonDetails.classList.add('btn-md')
     buttonDetails.setAttribute('type', 'button')
+    buttonDetails.setAttribute("id", movie.id)
+    buttonDetails.style.background = '#8D8DAA'
     buttonDetails.innerHTML = 'Details'
     buttonDetails.addEventListener('click', function() {
+        fetch(`https://se104-project-backend.du.r.appspot.com/movie/642110330/${movie.id}`)
+            .then(response => {
+                return response.json()
+            }).then(results => {
+                document.getElementById('staticBackdrop').setAttribute('class', 'modal fade in')
+                document.getElementById('staticBackdrop').style.display = 'block';
+                document.getElementById('staticBackdrop').style.opacity = '100%';
+                document.getElementById('modalTitle').innerHTML = results.title;
+                document.getElementById('modalImg').setAttribute('src', movie.image_url)
+                document.getElementById("modalMessage").innerHTML = results.synopsis;
 
+
+
+            })
     })
     cell.appendChild(buttonDetails)
     row.appendChild(cell)
@@ -127,17 +139,41 @@ function showFavAnime(index, movie) {
     const buttonDelete = document.createElement('button')
     buttonDelete.classList.add('btn')
     buttonDelete.classList.add('btn-danger')
+    buttonDelete.style.background = '#B20600'
     buttonDelete.setAttribute('type', 'button')
     buttonDelete.innerHTML = 'Delete'
     buttonDelete.addEventListener('click', function() {
         let cf = confirm(`Do you want to delete ${movie.title} ?`)
         if (cf) {
             deleteFavAnime(movie.id)
+
         }
     })
     cell.appendChild(buttonDelete)
     row.appendChild(cell)
     tableBodyFav.appendChild(row)
+}
+
+function myFunction() {
+    document.getElementById("movie.id").showModal();
+}
+
+
+
+function showDetailsAnime(movie) {
+
+    const animeTitle = document.createElement('modalTitle')
+    animeTitle.innerHTML = (movie.title)
+    document.getElementById("staticBackdrop").appendChild(animeTitle);
+
+    const animeImg = document.createElement('modalBody')
+    animeImg.setAttribute('src', movie.image_url)
+    animeImg.height = 300
+    document.getElementById("staticBackdrop").appendChild(animeImg);
+
+    const animeSynopsis = document.createElement('modalBody')
+    animeSynopsis.innerHTML = (movie.synopsis)
+    document.getElementById("staticBackdrop").appendChild(animeSynopsis);
 }
 
 function deleteFavAnime(id) {
@@ -196,12 +232,14 @@ function addAnimeToDBFav(anime) {
 var listAnimeResult = document.getElementById('outputListSearch')
 var favoriteAnime = document.getElementById('outputListFav')
 var searchBarAnime = document.getElementById('searchBar')
+    // var modal = document.getElementById('movie.id')
 
 
 function hideAll() {
     listAnimeResult.style.display = 'none'
     favoriteAnime.style.display = 'none'
     searchBarAnime.style.display = 'none'
+        // modal.style.display = 'none'
 
 }
 document.getElementById('favoriteAnime').addEventListener('click', () => {
@@ -209,23 +247,38 @@ document.getElementById('favoriteAnime').addEventListener('click', () => {
     favoriteAnime.style.display = 'block'
 })
 
+// document.getElementById('modal').addEventListener('click', () => {
+//     hideAll()
+//     modal.style.display = 'block'
+
+// })
+
 document.getElementById('defaultPage').addEventListener('click', () => {
     hideAll()
     searchBarAnime.style.display = 'flex'
     listAnimeResult.style.display = 'block'
 })
 
-document.addEventListener("DOMContentLoaded", function() {
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            document.getElementById('navbar_top').classList.add('fixed-top');
-            // add padding top to show content behind navbar
-            navbar_height = document.querySelector('.navbar').offsetHeight;
-            document.body.style.paddingTop = navbar_height + 'px';
-        } else {
-            document.getElementById('navbar_top').classList.remove('fixed-top');
-            // remove padding top from body
-            document.body.style.paddingTop = '0';
-        }
-    });
-});
+
+function closeModal() {
+    document.getElementById('staticBackdrop').setAttribute('class', 'modal fade')
+    document.getElementById('staticBackdrop').style.display = 'none';
+    document.getElementById('staticBackdrop').style.opacity = '0';
+}
+
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     window.addEventListener('scroll', function() {
+//         if (window.scrollY > 50) {
+//             document.getElementById('navbar_top').classList.add('fixed-top');
+//             // add padding top to show content behind navbar
+//             navbar_height = document.querySelector('.navbar').offsetHeight;
+//             document.body.style.paddingTop = navbar_height + 'px';
+//         } else {
+//             document.getElementById('navbar_top').classList.remove('fixed-top');
+//             // remove padding top from body
+//             document.body.style.paddingTop = '0';
+//         }
+//     });
+// });
